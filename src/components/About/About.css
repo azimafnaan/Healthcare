@@ -1,0 +1,39 @@
+h1 {
+  font-family: "Open Sans Condensed", sans-serif;
+  margin-top: 30px;
+}
+
+.about-section img {
+  width: 600px;
+  height: 400px !important;
+  margin-left: 20px;
+}
+.about-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+}
+
+.about-section p {
+  margin: 0 50px;
+  text-align: justify;
+  font-size: 20px;
+  line-height: 50px;
+}
+.about-right {
+  margin-top: 20px;
+}
+.about-section h2 {
+  font-family: "Open Sans Condensed", sans-serif;
+  margin-bottom: 30px;
+}
+
+/* Make it responsive */
+@media only screen and (max-width: 688px) {
+  .about-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .about-section img {
+    width: 80%;
+  }
+}

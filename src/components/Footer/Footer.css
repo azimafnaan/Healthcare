@@ -1,0 +1,31 @@
+.footer-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+  background-color: black;
+}
+
+.contact-info {
+  color: white;
+  margin-top: 100px;
+}
+.form-group {
+  margin-top: 20px;
+  color: white;
+}
+
+.banani-branch {
+  color: white;
+  margin-top: 100px;
+}
+.uttara-branch {
+  color: white;
+  margin-top: 100px;
+}
+
+/* Make responsive */
+@media only screen and (max-width: 688px) {
+  .footer-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

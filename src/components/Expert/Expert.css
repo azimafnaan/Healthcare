@@ -1,0 +1,9 @@
+img {
+  width: 350px;
+  height: 100px;
+}
+@media only screen and (max-width: 688px) {
+  .expert-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
