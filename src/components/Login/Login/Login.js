@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Form, Button } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import Header from '../../Header/Header';
 import useAuth from '../../hook/useAuth';
 import './Login.css';
-const Login = () => {
+const Login = (props) => {
+    const { handleEmailChange, handlePasswordChange } = props;
     const { signInUsingGoogle } = useAuth();
+    const auth = getAuth();
+    const [isLogin, setIsLogin] = useState(false)
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || '/home'
     const handleGoogleLogin = () => {
         signInUsingGoogle()
             .then(result => {
-                history.push(redirect_url);
+                history.push(redirect_url)
             })
-        // .catch(error => {
-        //     setError(error.message);
-        // })
     }
+
+
+
+
     return (
         <div>
             <Header></Header>
@@ -25,13 +30,13 @@ const Login = () => {
             <Form className="form">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
 
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
