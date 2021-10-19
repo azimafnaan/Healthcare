@@ -1,9 +1,23 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import Header from '../../Header/Header';
+import useAuth from '../../hook/useAuth';
 import './Login.css';
 const Login = () => {
+    const { signInUsingGoogle } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location.state?.from || '/home'
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then(result => {
+                history.push(redirect_url);
+            })
+        // .catch(error => {
+        //     setError(error.message);
+        // })
+    }
     return (
         <div>
             <Header></Header>
@@ -23,7 +37,7 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
-            <button className="btn btn-primary">Login With Google</button>
+            <button onClick={handleGoogleLogin} className="btn btn-primary">Login With Google</button>
             <p>Don't Have Any Account? <Link to="/register">Register Account</Link> </p>
         </div>
     );
