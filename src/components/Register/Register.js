@@ -27,6 +27,7 @@ const Register = () => {
             setError("Password Must Be At Least 6 Characters")
             return;
         }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user
@@ -35,7 +36,6 @@ const Register = () => {
             .catch(error => {
                 setError(error.message)
             })
-
 
     }
 
