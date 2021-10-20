@@ -4,7 +4,7 @@ import Header from '../../Header/Header';
 import useAuth from '../../hook/useAuth';
 import './Login.css';
 const Login = (props) => {
-    const { signInUsingGoogle } = useAuth();
+    const { signInUsingGoogle, setIsLoading } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || '/home'
@@ -13,6 +13,7 @@ const Login = (props) => {
             .then(result => {
                 history.push(redirect_url)
             })
+            .finally(() => setIsLoading(false));
     }
 
     return (
