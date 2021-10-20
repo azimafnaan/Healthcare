@@ -14,10 +14,12 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand href="#home">Surgeon Heath Care</Navbar.Brand>
                     <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Collapse className="justify-content-end ">
                         <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
                         <Nav.Link as={HashLink} to="/home#services">Services</Nav.Link>
                         <Nav.Link as={HashLink} to="/home#expertise">Expertise</Nav.Link>
+                        <Nav.Link as={Link} to="/appointment">Appointment</Nav.Link>
+                        <Nav.Link as={Link} to="/facility">Facility</Nav.Link>
                         <Nav.Link as={Link} to="/login">Login</Nav.Link>
                         <Nav.Link as={Link} to="/register">Register</Nav.Link>
                         {user?.email && <Button onClick={logout} variant="primary">Logout </Button>}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import Header from '../Header/Header';
 
 const Details = () => {
     let { serviceId } = useParams();
@@ -17,7 +17,7 @@ const Details = () => {
     // }, [service, serviceId]);
     return (
         <div>
-
+            <Header></Header>
             <img
                 className="d-block w-100"
                 src={abc?.img}
